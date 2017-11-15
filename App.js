@@ -1,31 +1,79 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+
+// let fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
+// console.log(fetchThis)
+
+
+
+// var getLocation = () => {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition);
+//     // console.log("success!");
+//   } else {
+//     console.log('oh shit')
+//   }
+// }
+
+// var showPosition = (position) => {
+//   // fetchThis = fetchThis + `${position.coords.latitude},${position.coords.longitude}|`
+//   fetchThis = `${fetchThis}${position.coords.latitude},${position.coords.longitude}|`
+// }
+
+
+// 'https://roads.googleapis.com/v1/snapToRoads?path=40.01650338027972,-105.28177227007887%7C40.01650338027972,-105.28177227007887%7C40.01650345439073,-105.2817625341559%7C40.01650345439073,-105.2817625341559&interpolate=true&key=AIzaSyB3X6GzbYtWZKAHEOvwGCqNP9cxp9XQvCg'
+
+
+// getLocation()
+// setInterval(getLocation, 10000)
+
+// for (var i = 0; i < 20; i++) {
+//   getLocation()
+// }
 
 export default class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
-    this.state={test: 'test'}
-  }
-  render() {
-    var getLocation=()=>{
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        console.log('oh shit')
-      }
+    const fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
+    this.state = {
+      test: 'test',
+      locations: [],
+      currentUrl: fetchThis
     }
-      var showPosition=(position)=>{
+  }
 
-          this.setState({test:position.coords.latitude})
-          return(
-            <h1>{this.state.test}</h1>
-          )
+  showPosition = (position) => {
+    this.currentUrl = `${this.state.currentUrl}${position.coords.latitude},${position.coords.longitude}|`
+  }
 
-      }
-      getLocation()
+  setLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log('oh shit')
+    }
+  }
+
+  // async componentDidMount() {
+  //   const locationResponse = await fetch(this.state.currentUrl)
+  //   // console.log('internal fetch', fetchThis);
+  //   const locationJSON = await locationResponse.json()
+  //   console.log("locationJSON", locationJSON);
+  //
+  //   // this.setState({locations: locationJSON})
+  // }
+
+  componentDidMount = () => {
+    fetch(this.state.currentUrl)
+      .then(locationResponse => locationResponse.json())
+      .then(locationJSON => console.log(locationJSON))
+  }
+
+  render() {
+
     return (
       <View style={styles.container}>
-        <Text>{this.state.test}</Text>
+        <Text>Heeeeyyyyyyy</Text>
       </View>
     );
   }
@@ -36,6 +84,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
