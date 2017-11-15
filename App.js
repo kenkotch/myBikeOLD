@@ -34,17 +34,21 @@ import {StyleSheet, Text, View} from 'react-native';
 export default class App extends React.Component {
   constructor(props) {
     super(props)
-    const fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
+
+    this.apiUrl = 'https://roads.googleapis.com/v1/snapToRoads'
+    this.apiKey = 'key=AIzaSyB3X6GzbYtWZKAHEOvwGCqNP9cxp9XQvCg'
+
     this.state = {
       test: 'test',
-      locations: [],
-      currentUrl: fetchThis
+      locations: '|'
     }
   }
 
-  showPosition = (position) => {
-    this.currentUrl = `${this.state.currentUrl}${position.coords.latitude},${position.coords.longitude}|`
-  }
+  // showPosition = (position) => {
+  //   this.currentUrl = `${this.state.currentUrl}${position.coords.latitude},${position.coords.longitude}|`
+  // }
+
+  currentUrl = () => `${this.apiUrl}?path=${this.state.locations}?key=${this.apiKey}`
 
   setLocation = () => {
     if (navigator.geolocation) {
@@ -54,17 +58,8 @@ export default class App extends React.Component {
     }
   }
 
-  // async componentDidMount() {
-  //   const locationResponse = await fetch(this.state.currentUrl)
-  //   // console.log('internal fetch', fetchThis);
-  //   const locationJSON = await locationResponse.json()
-  //   console.log("locationJSON", locationJSON);
-  //
-  //   // this.setState({locations: locationJSON})
-  // }
-
   componentDidMount = () => {
-    fetch(this.state.currentUrl)
+    fetch(this.currentUrl())
       .then(locationResponse => locationResponse.json())
       .then(locationJSON => console.log(locationJSON))
   }
