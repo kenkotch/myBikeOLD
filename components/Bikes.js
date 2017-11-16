@@ -11,7 +11,7 @@ const Bikes = (props) => {
     <Image style={ styles.background }>
 
       <Header />
-
+      <Start />
       <Maintenance bikes={ props.bikes }/>
 
 

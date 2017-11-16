@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableNativeFeedback } from 'react-native'
 
 const Start = () => (
-  <TouchableHighlight style={ styles.container }>
-    <Text style={ styles.button }>Start Ride</Text>
-  </TouchableHighlight>
+
+
+
+    <Button style={ styles.button } title='Start Ride' />
 )
 
 export default Start
