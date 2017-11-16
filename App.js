@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Font } from 'expo';
 styles = require('./assets/stylesheet/Styles')
 
@@ -42,7 +42,6 @@ export default class App extends React.Component {
        'Font Awesome': require('./assets/fonts/fontawesome.ttf'),
        'Muli Light': require('./assets/fonts/Muli-Light.ttf'),
        'Muli Regular': require('./assets/fonts/Muli-Regular.ttf'),
-       'Ovo': require('./assets/fonts/Ovo-Regular.ttf')
      });
 
     const bikeRes = await fetch('https://my-bike.herokuapp.com/bikes')

@@ -47,9 +47,9 @@ module.exports = StyleSheet.create({
     marginBottom: 5
   },
   button: {
-    alignItems: 'center',
-    fontFamily: 'Muli Regular',
-    fontSize: 20
+    textAlign: 'center',
+    fontFamily: 'Muli Light',
+    fontSize: 35
   }
 
 });

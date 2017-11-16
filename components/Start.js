@@ -1,9 +1,12 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button, TouchableNativeFeedback } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
+import { Button } from 'native-base'
 
 const Start = () => (
 
-    <Text style={ styles.button }>Start Ride</Text>
+  <Button style={ styles.button } light title='shit'>
+    <Text>     Light     </Text>
+  </Button>
 )
 
 export default Start
