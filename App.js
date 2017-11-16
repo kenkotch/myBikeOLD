@@ -23,7 +23,6 @@ let fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
 // getLocation()
 // setInterval(getLocation, 1000)
 
-// let holder = []
 //
 // let counter = () => {
 //       holder.push('TEST')
@@ -32,9 +31,7 @@ let fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
 //
 // setInterval(counter, 1000)
 
-let holder = []
 
-console.log(holder);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -42,6 +39,7 @@ export default class App extends React.Component {
     this.state = {
       test: 'test',
       locations: [],
+      holder: [],
       fetchThis: 'https://roads.googleapis.com/v1/snapToRoads?path='
     };
     this.getLocation = this.getLocation.bind(this);
@@ -49,12 +47,14 @@ export default class App extends React.Component {
 
   showPosition = (position) => {
     this.setState({
-      fetchThis: this.state.fetchThis + `${position.coords.latitude},${position.coords.longitude}`
+      holder: this.state.holder + [position.coords.latitude, position.coords.longitude]
+      // fetchThis: this.state.fetchThis + position.coords.latitude + position.coords.longitude
     });
     console.log(position.coords.latitude, position.coords.longitude);
+    // console.log(this.state.holder);
     // holder.push(position.coords.latitude, position.coords.longitude)
 
-    // fetchThis = fetchThis + `${position.coords.latitude},${position.coords.longitude}`
+    //  fetchThis = fetchThis + `${position.coords.latitude},${position.coords.longitude}`
   }
 
   getLocation = () => {
@@ -67,21 +67,20 @@ export default class App extends React.Component {
   };
 
   async componentDidMount() {
-    const locationResponse = await fetch(`${this.state.fetchThis}`)
-    console.log('internal fetch', this.state.fetchThis);
+    const locationResponse = await fetch(`${fetchThis}`)
+    console.log('internal fetch', fetchThis);
     const locationJSON = await locationResponse.json()
     // console.log("locationJSON", locationJSON);
     this.setState({locations: locationJSON})
-    console.log(this.state);
+    console.log(this.state.holder);
   }
 
 
   render() {
-    // setInterval(this.getLocation, 50000)
-    this.getLocation
+    // setInterval(this.getLocation, 60000)
     return (
       <View style={styles.container}>
-        <Text>{fetchThis}</Text>
+        <Text>{this.state.holder}</Text>
       </View>
     );
   }
