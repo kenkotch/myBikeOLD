@@ -25,9 +25,9 @@ export default class App extends React.Component {
   }
 
   getLocation = () => {
-    for (let i = 0; i < 10; i+=0.01) {
-      console.log('');
-    }
+    // for (let i = 0; i < 10; i+=0.01) {
+    //   console.log('');
+    // }
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.showPosition);
       // console.log("success!");
@@ -47,7 +47,10 @@ export default class App extends React.Component {
 
 
   render() {
-    // setInterval(this.getLocation, 60000)
+    // setInterval(this.getLocation, 5000)
+    setTimeout(this.getLocation, 1000)
+    // this.getLocation(setInterval(this.getLocation(clearInterval(this.getLocation)), 5000))
+    // this.getLocation()
     return (
       <View style={styles.container}>
         <Text>{this.state.holder}</Text>
