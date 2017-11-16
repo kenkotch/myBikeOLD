@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Button, Image, TouchableHighlight } from 'react
 const AddBike = () => {
 
   return (
-    
+    <Text style={ styles.button }>AddBike</Text>
   )
 }
 

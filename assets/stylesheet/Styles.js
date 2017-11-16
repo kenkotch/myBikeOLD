@@ -24,7 +24,7 @@ module.exports = StyleSheet.create({
     marginBottom: 1,
   },
   background: {
-    backgroundColor: '#e29129',
+    backgroundColor: '#e2ca29',
     width: '100%',
     height: '100%',
   },
@@ -33,13 +33,13 @@ module.exports = StyleSheet.create({
   },
   subHeader: {
     alignItems: 'center',
-    fontFamily: 'Ovo',
-    fontSize: '35'
+    fontFamily: 'Muli Regular',
+    fontSize: 35
   },
   maintData: {
     alignItems: 'center',
-    fontFamily: 'Ovo',
-    fontSize: '20'
+    fontFamily: 'Muli Regular',
+    fontSize: 20
   },
   hozRule: {
     borderBottomColor: 'black',
@@ -47,8 +47,9 @@ module.exports = StyleSheet.create({
     marginBottom: 5
   },
   button: {
+    alignItems: 'center',
     fontFamily: 'Muli Regular',
-    fontSize: '300'
+    fontSize: 20
   }
 
 });

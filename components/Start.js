@@ -3,9 +3,7 @@ import { StyleSheet, Text, View, Button, TouchableNativeFeedback } from 'react-n
 
 const Start = () => (
 
-
-
-    <Button style={ styles.button } title='Start Ride' />
+    <Text style={ styles.button }>Start Ride</Text>
 )
 
 export default Start
