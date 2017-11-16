@@ -12,29 +12,22 @@ module.exports = StyleSheet.create({
     backgroundColor: 'transparent',
     fontFamily: 'Font Awesome',
     fontSize: 60,
-    marginTop: 10,
+    marginTop: 15,
     textAlign: 'center',
     flex: 1
   },
   muliLight: {
     fontFamily: 'Muli Light',
     fontSize: 45,
-    marginTop: 10,
+    marginTop: 15,
   },
   background: {
-    backgroundColor: '#e69c3b',
+    backgroundColor: '#e29129',
     width: '100%',
     height: '100%',
+  },
+  center: {
+    alignItems: 'center'
   }
-
-
-
-
-
-
-
-
-
-
 
 });

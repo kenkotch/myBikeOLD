@@ -29,6 +29,7 @@ export default class App extends React.Component {
     super(props)
     this.state={
       locations: [],
+      bikes: [],
       isLoading: true
     }
   }
@@ -39,27 +40,32 @@ export default class App extends React.Component {
        'Muli Light': require('./assets/fonts/Muli-Light.ttf'),
        'Muli Regular': require('./assets/fonts/Muli-Regular.ttf'),
        'Ovo': require('./assets/fonts/Ovo-Regular.ttf')
-
      });
+
+    const bikeRes = await fetch('http://my-bike.herokuapp.com/bikes')
+    const bikeJson = await bikeRes.json()
+
     const locationResponse = await fetch(`https://roads.googleapis.com/v1/snapToRoads?path=${-35.27801,149.12958}%7C${-35.28032,149.12907}&interpolate=true&key=AIzaSyB3X6GzbYtWZKAHEOvwGCqNP9cxp9XQvCg`)
     const locationJSON = await locationResponse.json()
     // console.log("locationJSON", locationJSON);
 
     this.setState({
       locations:locationJSON,
+      bikes: [
+        ...bikeJson
+      ],
       isLoading: false
     })
+    console.log(this.state.bikes)
   }
 
   render() {
     return (
 
-      this.state.isLoading ? <View><Text>Loading...</Text></View> :
-
+      this.state.isLoading ?
+      <View><Text>Loading...</Text></View> :
       <View style={styles.container}>
-
-        <Bikes />
-
+        <Bikes bikes={ this.state.bikes }/>
       </View>
     );
   }
