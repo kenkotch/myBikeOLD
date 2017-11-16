@@ -77,7 +77,7 @@ export default class App extends React.Component {
 
 
   render() {
-    // setInterval(this.getLocation, 60000)
+    // setInterval(this.getLocation, 10000)
     return (
       <View style={styles.container}>
         <Text>{this.state.holder}</Text>
