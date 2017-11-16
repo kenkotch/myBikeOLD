@@ -12,14 +12,16 @@ module.exports = StyleSheet.create({
     backgroundColor: 'transparent',
     fontFamily: 'Font Awesome',
     fontSize: 60,
-    marginTop: 15,
+    marginTop: 20,
+    marginBottom: 1,
     textAlign: 'center',
     flex: 1
   },
   muliLight: {
     fontFamily: 'Muli Light',
     fontSize: 45,
-    marginTop: 15,
+    marginTop: 20,
+    marginBottom: 1,
   },
   background: {
     backgroundColor: '#e29129',
@@ -38,6 +40,14 @@ module.exports = StyleSheet.create({
     alignItems: 'center',
     fontFamily: 'Ovo',
     fontSize: '20'
+  },
+  hozRule: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1.5,
+    marginBottom: 5
+  },
+  button: {
+    alignItems: 'center',
   }
 
 });
