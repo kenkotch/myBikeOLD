@@ -6,6 +6,7 @@ styles = require('./assets/stylesheet/Styles')
 import Bikes from './components/Bikes'
 import Maintenance from './components/Maintenance'
 import Start from './components/Start'
+import AddBike from './components/AddBike'
 
 let fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
 
