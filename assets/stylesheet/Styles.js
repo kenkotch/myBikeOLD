@@ -28,6 +28,16 @@ module.exports = StyleSheet.create({
   },
   center: {
     alignItems: 'center'
+  },
+  subHeader: {
+    alignItems: 'center',
+    fontFamily: 'Ovo',
+    fontSize: '35'
+  },
+  maintData: {
+    alignItems: 'center',
+    fontFamily: 'Ovo',
+    fontSize: '20'
   }
 
 });

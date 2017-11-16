@@ -4,6 +4,7 @@ import { Font } from 'expo';
 styles = require('./assets/stylesheet/Styles')
 
 import Bikes from './components/Bikes'
+import Maintenance from './components/Maintenance'
 
 let fetchThis = 'https://roads.googleapis.com/v1/snapToRoads?path='
 
@@ -42,7 +43,7 @@ export default class App extends React.Component {
        'Ovo': require('./assets/fonts/Ovo-Regular.ttf')
      });
 
-    const bikeRes = await fetch('http://my-bike.herokuapp.com/bikes')
+    const bikeRes = await fetch('https://my-bike.herokuapp.com/bikes')
     const bikeJson = await bikeRes.json()
 
     const locationResponse = await fetch(`https://roads.googleapis.com/v1/snapToRoads?path=${-35.27801,149.12958}%7C${-35.28032,149.12907}&interpolate=true&key=AIzaSyB3X6GzbYtWZKAHEOvwGCqNP9cxp9XQvCg`)
